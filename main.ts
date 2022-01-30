@@ -3,6 +3,9 @@ input.onButtonPressed(Button.A, function () {
         bewegeMario()
     }
 })
+/**
+ * Lösche Mario LED nicht wenn Mario und Kiste auf derselben Position sind
+ */
 function bewegeMario () {
     if (HöheMario != 3 || Kistenposition != 1) {
         led.unplot(1, HöheMario)
@@ -51,6 +54,9 @@ function starteNeu () {
     RichtungMario = -1
     HöheMario = 3
 }
+/**
+ * Lösche Kisten LED nicht wenn Mario und Kiste auf derselben Position sind
+ */
 function verschiebeKiste () {
     if (HöheMario != 3 || Kistenposition != 1) {
         led.unplot(Kistenposition, 3)
