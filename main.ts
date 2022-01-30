@@ -19,8 +19,46 @@ basic.showLeds(`
     # # # # #
     `)
 basic.forever(function () {
-	
-})
-basic.forever(function () {
-	
+    let Zaehler = 0
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . # . . #
+        # # # # #
+        `)
+    basic.pause(100)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . # . # .
+        # # # # #
+        `)
+    basic.pause(100)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . # . .
+        # # # # #
+        `)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . # . . .
+        # # # # #
+        `)
+    if (led.point(Zaehler, Zaehler)) {
+        basic.showString("Lose!")
+    }
+    basic.pause(100)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        # . . . .
+        # # # # #
+        `)
 })
