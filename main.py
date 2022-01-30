@@ -1,4 +1,5 @@
-input.onButtonPressed(Button.A, function () {
+def on_button_pressed_a():
+    global MarioUnten, AnzahlSprünge
     MarioUnten = 0
     led.unplot(1, 3)
     led.plot(1, 2)
@@ -13,25 +14,28 @@ input.onButtonPressed(Button.A, function () {
     led.plot(1, 3)
     MarioUnten = 1
     AnzahlSprünge = AnzahlSprünge + 1
-    if (AnzahlSprünge == 3) {
-        basic.showString("WIN!")
-    }
-})
-function starteNeu () {
-    basic.showLeds(`
+    if AnzahlSprünge == 3:
+        basic.show_string("WIN!")
+input.on_button_pressed(Button.A, on_button_pressed_a)
+
+def starteNeu():
+    global AnzahlSprünge, MarioUnten
+    basic.show_leds("""
         . . . . .
         . . . . .
         . . . . .
-        . # . . #
+        . # . . .
         # # # # #
-        `)
+        """)
     AnzahlSprünge = 0
     MarioUnten = 1
-}
-let AnzahlSprünge = 0
-let MarioUnten = 0
+AnzahlSprünge = 0
+MarioUnten = 0
 starteNeu()
-basic.forever(function () {
+
+def on_forever():
+    led.plot(4, 3)
+    basic.pause(200)
     led.unplot(4, 3)
     led.plot(3, 3)
     basic.pause(200)
@@ -39,30 +43,30 @@ basic.forever(function () {
     led.plot(2, 3)
     basic.pause(200)
     led.unplot(2, 3)
-    if (MarioUnten == 1) {
-        basic.showLeds(`
+    if MarioUnten == 1:
+        basic.show_leds("""
             . . . . .
             . . . . .
             # # # . .
             # . # . .
             # # # # #
-            `)
-        basic.showLeds(`
+            """)
+        basic.show_leds("""
             . . . . .
             . # . # .
             . . . . .
             . . . # .
             # # # # #
-            `)
-        basic.showLeds(`
+            """)
+        basic.show_leds("""
             . # . . #
             . . . . .
             . . . . .
             . . . . #
             # # # # #
-            `)
+            """)
         starteNeu()
-    } else {
+    else:
         led.plot(1, 3)
         basic.pause(200)
         led.unplot(1, 3)
@@ -71,7 +75,4 @@ basic.forever(function () {
         basic.pause(200)
         led.unplot(0, 3)
         basic.pause(200)
-        led.plot(4, 3)
-        basic.pause(200)
-    }
-})
+basic.forever(on_forever)
