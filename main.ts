@@ -1,8 +1,10 @@
 input.onButtonPressed(Button.A, function () {
-    bewegeMario()
+    for (let index = 0; index < 4; index++) {
+        bewegeMario()
+    }
 })
 function bewegeMario () {
-    if (HöheMario == 3 || Kistenposition != 1) {
+    if (HöheMario != 3 || Kistenposition != 1) {
         led.unplot(1, HöheMario)
     }
     HöheMario = HöheMario + RichtungMario
@@ -50,7 +52,7 @@ function starteNeu () {
     HöheMario = 3
 }
 function verschiebeKiste () {
-    if (HöheMario == 3 || Kistenposition != 1) {
+    if (HöheMario != 3 || Kistenposition != 1) {
         led.unplot(Kistenposition, 3)
     }
     if (Kistenposition == 0) {
