@@ -1,5 +1,6 @@
 input.onButtonPressed(Button.A, function () {
-    for (let index = 0; index < 4; index++) {
+    bewegeMario()
+    while (HöheMario != 3) {
         bewegeMario()
     }
 })
@@ -11,11 +12,11 @@ function bewegeMario () {
         led.unplot(1, HöheMario)
     }
     HöheMario = HöheMario + RichtungMario
-    led.plot(1, HöheMario)
-    basic.pause(100)
     if (HöheMario != 2) {
         RichtungMario = RichtungMario * -1
     }
+    led.plot(1, HöheMario)
+    basic.pause(100)
 }
 function starteNeu () {
     basic.showLeds(`
