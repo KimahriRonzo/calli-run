@@ -13,7 +13,7 @@ input.onButtonPressed(Button.A, function () {
     led.plot(1, 3)
     MarioUnten = 1
     AnzahlSprünge = AnzahlSprünge + 1
-    if (AnzahlSprünge == 15) {
+    if (AnzahlSprünge == 10) {
         Win = 1
         basic.showString("WIN!")
     }
@@ -26,7 +26,7 @@ function starteNeu () {
         . # . . #
         # # # # #
         `)
-    basic.pause(100)
+    basic.pause(200)
     basic.showLeds(`
         . # # # .
         . . . . .
@@ -34,7 +34,7 @@ function starteNeu () {
         . # . . #
         # # # # #
         `)
-    basic.pause(100)
+    basic.pause(200)
     basic.showLeds(`
         . . # . .
         . . . . .
@@ -42,7 +42,7 @@ function starteNeu () {
         . # . . #
         # # # # #
         `)
-    basic.pause(100)
+    basic.pause(200)
     basic.showLeds(`
         . . . . .
         . . . . .
@@ -70,14 +70,21 @@ function verschiebeKiste () {
             . . . . .
             . . . . .
             # # # . .
-            # . # . .
+            # # # . .
             # # # # #
             `)
         basic.showLeds(`
             . . . . .
             . # . # .
+            . # # . .
+            . . # # .
+            # # # # #
+            `)
+        basic.showLeds(`
+            . # . . #
+            . # . # .
             . . . . .
-            . . . # .
+            . . . # #
             # # # # #
             `)
         basic.showLeds(`
@@ -87,6 +94,14 @@ function verschiebeKiste () {
             . . . . #
             # # # # #
             `)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
+        basic.pause(500)
         starteNeu()
     }
     led.plot(Kistenposition, 3)
