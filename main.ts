@@ -12,11 +12,6 @@ input.onButtonPressed(Button.A, function () {
     led.unplot(1, 2)
     led.plot(1, 3)
     MarioUnten = 1
-    AnzahlSprünge = AnzahlSprünge + 1
-    if (AnzahlSprünge == 10) {
-        Win = 1
-        basic.showString("WIN!")
-    }
 })
 function starteNeu () {
     basic.showLeds(`
@@ -50,20 +45,24 @@ function starteNeu () {
         . # . . #
         # # # # #
         `)
-    AnzahlSprünge = 0
+    AnzahlDurchläufe = 0
     MarioUnten = 1
     Kistenposition = 4
-    Win = 0
 }
 function verschiebeKiste () {
-    led.unplot(Kistenposition, 3)
+    if (MarioUnten == 0 || Kistenposition != 1) {
+        led.unplot(Kistenposition, 3)
+    }
     if (Kistenposition == 0) {
         Kistenposition = 4
-    } else {
-        Kistenposition = Kistenposition - 1
-        if (Win == 1) {
+        AnzahlDurchläufe = AnzahlDurchläufe + 1
+        if (AnzahlDurchläufe == 10) {
+            Win = 1
+            basic.showString("WIN!")
             starteNeu()
         }
+    } else {
+        Kistenposition = Kistenposition - 1
     }
     if (MarioUnten == 1 && Kistenposition == 1) {
         basic.showLeds(`
@@ -107,9 +106,9 @@ function verschiebeKiste () {
     led.plot(Kistenposition, 3)
     basic.pause(200)
 }
-let Kistenposition = 0
 let Win = 0
-let AnzahlSprünge = 0
+let Kistenposition = 0
+let AnzahlDurchläufe = 0
 let MarioUnten = 0
 starteNeu()
 basic.forever(function () {
