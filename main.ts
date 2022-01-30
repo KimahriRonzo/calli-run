@@ -64,33 +64,33 @@ function verschiebeKiste () {
         if (Win == 1) {
             starteNeu()
         }
-        if (MarioUnten == 1 && Kistenposition == 1) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                # # # . .
-                # . # . .
-                # # # # #
-                `)
-            basic.showLeds(`
-                . . . . .
-                . # . # .
-                . . . . .
-                . . . # .
-                # # # # #
-                `)
-            basic.showLeds(`
-                . # . . #
-                . . . . .
-                . . . . .
-                . . . . #
-                # # # # #
-                `)
-            starteNeu()
-        }
-        led.plot(Kistenposition, 3)
-        basic.pause(200)
     }
+    if (MarioUnten == 1 && Kistenposition == 1) {
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            # # # . .
+            # . # . .
+            # # # # #
+            `)
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . . . # .
+            # # # # #
+            `)
+        basic.showLeds(`
+            . # . . #
+            . . . . .
+            . . . . .
+            . . . . #
+            # # # # #
+            `)
+        starteNeu()
+    }
+    led.plot(Kistenposition, 3)
+    basic.pause(200)
 }
 let Kistenposition = 0
 let Win = 0
