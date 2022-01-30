@@ -13,7 +13,7 @@ input.onButtonPressed(Button.A, function () {
     led.plot(1, 3)
     MarioUnten = 1
     AnzahlSprünge = AnzahlSprünge + 1
-    if (AnzahlSprünge == 3) {
+    if (AnzahlSprünge == 15) {
         Win = 1
         basic.showString("WIN!")
     }
