@@ -45,7 +45,6 @@ function starteNeu () {
         # # # # #
         `)
     AnzahlDurchläufe = 0
-    MarioUnten = 1
     Kistenposition = 4
     RichtungMario = -1
     HöheMario = 3
@@ -106,7 +105,6 @@ function verschiebeKiste () {
     led.plot(Kistenposition, 3)
     basic.pause(200)
 }
-let MarioUnten = 0
 let AnzahlDurchläufe = 0
 let RichtungMario = 0
 let Kistenposition = 0
